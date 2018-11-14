@@ -7,22 +7,22 @@
   "author": "Martin Kireew <kireew.martin@icloud.com",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@storybook/addon-a11y": "4.0.4",
-    "@storybook/addon-centered": "^4.0.4",
-    "@storybook/addon-options": "4.0.4",
-    "@storybook/addon-viewport": "4.0.4",
-    "@storybook/react": "4.0.4",
+    "@babel/core": "^7.1.6",
+    "@storybook/addon-a11y": "4.0.6",
+    "@storybook/addon-centered": "^4.0.6",
+    "@storybook/addon-options": "4.0.6",
+    "@storybook/addon-viewport": "4.0.6",
+    "@storybook/react": "4.0.6",
     "@types/extract-text-webpack-plugin": "^3.0.3",
     "@types/html-webpack-plugin": "^3.2.0",
-    "@types/node": "10.12.3",
-    "@types/react": "16.4.18",
+    "@types/node": "10.12.7",
+    "@types/react": "16.7.6",
     "@types/react-dom": "16.0.9",
     "@types/storybook__addon-a11y": "^3.3.1",
     "@types/storybook__addon-centered": "^3.3.1",
     "@types/storybook__addon-options": "^3.2.2",
     "@types/storybook__react": "^4.0.0",
-    "@types/webpack": "4.4.18",
+    "@types/webpack": "4.4.19",
     "@types/webpack-dev-server": "^3.1.1",
     "babel-polyfill": "^6.26.0",
     "css-loader": "1.0.1",
@@ -57,8 +57,8 @@
     "webpack-dev-server": "3.1.10"
   },
   "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
   },
   "scripts": {
     "start": "webpack-dev-server --config ./config/webpack.config.dev.ts --hot true",

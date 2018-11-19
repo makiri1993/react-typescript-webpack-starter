@@ -1,6 +1,6 @@
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-
+import { resolve } from 'path'
 import { paths, resolver } from './definitions'
 import env from './environment/dev.env'
 
@@ -10,108 +10,30 @@ const BaseConfig: webpack.Configuration = {
   devtool: 'inline-source-map',
 
   entry: [
-    // require.resolve('./polyfills'),
+    require.resolve('./polyfills'),
     require.resolve('react-dev-utils/webpackHotDevClient'),
     paths.reactIndex
   ],
-  output: {
-    path: paths.staticRessources,
-    filename: 'app.js',
-    publicPath: '/'
-  },
   module: {
-    // strictExportPresence: true,
     rules: [
-      // {
-      //   test: /\.(ts|tsx)$/,
-      //   enforce: 'pre',
-      //   use: [
-      //     {
-      //       loader: './node_modules/tslint-loader/index.js',
-      //       options: {
-      //         typeCheck: true,
-      //         configFile: './tslint.json',
-      //         tsConfigFile: './tsconfig.json',
-      //         fileOutput: {
-      //           dir: './reports/',
-      //           ext: 'xml',
-      //           clean: true,
-      //           header:
-      //             '<?xml version=\'1.0\' encoding=\'utf-8\'?>\n<checkstyle version=\'5.7\'>',
-      //           footer: '</checkstyle>'
-      //         }
-      //       }
-      //     }
-      //   ],
-      //   include: paths.appSrc
-      // },
       {
         oneOf: [
           {
-            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-            loader: require.resolve('url-loader'),
-            options: {
-              limit: 10000
-              // name: `static/media/[name].${hash ? '[hash:8].' : ''}[ext]`
-            }
-          },
-          {
             test: /\.(ts|tsx)$/,
-            include: paths.appSrc,
-            loader: [
-              // require.resolve("babel-loader"),
-              require.resolve('ts-loader')
-            ]
-          },
-          {
-            test: /\.css$/,
-            exclude: /node_modules/,
             use: [
-              require.resolve('style-loader'),
-              require.resolve('css-loader'),
               {
-                loader: require.resolve('postcss-loader'),
+                loader: require.resolve('ts-loader'),
                 options: {
-                  ident: 'postcss',
-                  plugins: () => [require('postcss-flexbugs-fixes')]
+                  configFile: resolve(paths.tsconfig)
                 }
               }
-            ]
-          },
-          {
-            test: /\.css$/,
-            include: /node_modules/,
-            use: [
-              require.resolve('style-loader'),
-              require.resolve('css-loader'),
-              {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  ident: 'postcss',
-                  plugins: () => [require('postcss-flexbugs-fixes')]
-                }
-              }
-            ]
-          },
-          {
-            test: /\.less$/,
-            use: [
-              require.resolve('style-loader'),
-              require.resolve('css-loader'),
-              {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  ident: 'postcss',
-                  plugins: () => [require('postcss-flexbugs-fixes')]
-                }
-              },
-              require.resolve('less-loader')
             ]
           }
         ]
       }
     ]
   },
+
   resolve: {
     extensions: resolver.extensions,
     alias: resolver.alias,

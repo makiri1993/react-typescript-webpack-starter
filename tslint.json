@@ -32,7 +32,7 @@
     "no-duplicate-switch-case": true,
     "no-parameter-reassignment": true,
     "no-return-await": true,
-    // "no-unused-variable": true,
+    "no-unused-variable": true,
     "triple-equals": true,
     "use-isnan": true,
     "no-duplicate-imports": true,
@@ -45,7 +45,7 @@
       "check-open-brace",
       "check-whitespace"
     ],
-    "quotemark": [true, "single"],
+    "quotemark": [true, "single", "jsx-double"],
     "semicolon": [true, "never"],
     "variable-name": [
       true,

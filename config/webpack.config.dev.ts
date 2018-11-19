@@ -3,7 +3,10 @@ import BaseConfig from './webpack.config.base'
 
 const DevelopmentConfig: webpack.Configuration = {
   ...BaseConfig,
-  mode: 'development'
+  mode: 'development',
+  devServer: {
+    historyApiFallback: true
+  }
 }
 
 export default DevelopmentConfig
